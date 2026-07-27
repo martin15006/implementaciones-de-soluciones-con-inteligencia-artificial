@@ -64,6 +64,8 @@ plot y los box plots del EDA.
 > varía entre ejecuciones. Los parámetros del `StandardScaler`, en cambio, sí son
 > reproducibles, porque `train_test_split` usa `random_state=42`.
 
+Preguntas de reflexión: [`actividad-1-iris-colab/REFLEXION.md`](./actividad-1-iris-colab/REFLEXION.md)
+
 ### Hallazgo técnico
 
 Al inspeccionar el archivo `.h5` con `h5py` se confirmó que **contiene únicamente**
