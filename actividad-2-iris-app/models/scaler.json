@@ -1,0 +1,6 @@
+{
+  "feature_names": ["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"],
+  "mean": [5.867777777777778, 3.058888888888889, 3.7944444444444443, 1.2022222222222223],
+  "scale": [0.8565859595935715, 0.4642543470614272, 1.7708981469620382, 0.7709990312398838],
+  "classes": ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
+}

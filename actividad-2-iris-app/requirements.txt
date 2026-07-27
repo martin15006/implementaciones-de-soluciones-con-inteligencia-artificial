@@ -1,0 +1,6 @@
+# El framework de ML carga el modelo .h5 y ejecuta las predicciones
+# Se exige >=2.20 porque el modelo fue guardado con keras 3.13.2
+tensorflow>=2.20.0
+
+# Operaciones sobre los arreglos de entradas y salidas.
+numpy>=1.26.0

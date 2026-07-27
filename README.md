@@ -12,7 +12,7 @@ SENA — Regional Tolima | Centro de Industria y Construcción | 2026
 | Actividad | Tema | Estado |
 |---|---|---|
 | [1 — Cuaderno de IA en Colab](./actividad-1-iris-colab/) | EDA + red neuronal sobre el dataset Iris | Completada |
-| [2 — App con Python, GitHub y Claude AI](./actividad-2-iris-app/) | App de escritorio con Tkinter que consume el modelo |  En desarrollo |
+| [2 — App con Python, GitHub y Claude AI](./actividad-2-iris-app/) | App de escritorio con Tkinter que consume el modelo | Completada |
 
 ---
 
@@ -44,16 +44,25 @@ Dense(3, softmax)    →  33 parámetros
 
 ### Resultados
 
-> **Pendiente:** completar con los resultados de mi propia ejecución.
-> Los pesos iniciales de la red no tienen semilla fija (`tf.random.set_seed()`),
-> por lo que el accuracy varía en cada ejecución.
+Evaluación sobre el conjunto de prueba (30 muestras nunca vistas durante el
+entrenamiento):
 
-| Métrica | Valor |
-|---|---|
-| Accuracy en test | _(pendiente)_ |
-| F1-score Iris-setosa | _(pendiente)_ |
-| F1-score Iris-versicolor | _(pendiente)_ |
-| F1-score Iris-virginica | _(pendiente)_ |
+| Especie | Precision | Recall | F1-score | Muestras |
+|---|---|---|---|---|
+| Iris-setosa | 1.00 | 1.00 | 1.00 | 10 |
+| Iris-versicolor | 0.90 | 0.90 | 0.90 | 10 |
+| Iris-virginica | 0.90 | 0.90 | 0.90 | 10 |
+| **Accuracy** | | | **0.93** | **30** |
+
+*Iris-setosa* se clasificó perfectamente, sin un solo error. Los 2 fallos del
+modelo ocurrieron entre *versicolor* y *virginica*, que son las dos especies
+que se solapan en el espacio de características — tal como anticipaban el pair
+plot y los box plots del EDA.
+
+> **Nota sobre reproducibilidad:** los pesos iniciales de la red no tienen
+> semilla fija (`tf.random.set_seed()` no está definido), por lo que el accuracy
+> varía entre ejecuciones. Los parámetros del `StandardScaler`, en cambio, sí son
+> reproducibles, porque `train_test_split` usa `random_state=42`.
 
 ### Hallazgo técnico
 
@@ -70,7 +79,13 @@ o las predicciones serán incorrectas.
 Aplicación local que carga el modelo de la Actividad 1 y clasifica una flor
 a partir de sus cuatro medidas.
 
- Instrucciones de instalación y uso: [`actividad-2-iris-app/README.md`](./actividad-2-iris-app/)
+**Arquitectura:** `model.py` (lógica, no conoce Tkinter) + `ui.py` (interfaz, no
+conoce TensorFlow) + `main.py` (punto de entrada). Baja dependencia y alta cohesión.
+
+**Resultado de las pruebas:** 6 aciertos de 7 con valores reales del dataset (85.7%).
+
+- Instalación y uso: [`actividad-2-iris-app/README.md`](./actividad-2-iris-app/README.md)
+- Preguntas de reflexión: [`actividad-2-iris-app/REFLEXION.md`](./actividad-2-iris-app/REFLEXION.md)
 
 ---
 
