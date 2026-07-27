@@ -1,0 +1,23 @@
+# ---- Entornos virtuales de Python ----
+# Pesan cientos de MB y se reconstruyen con: pip install -r requirements.txt
+venv/
+.venv/
+env/
+
+# ---- Cache de Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ---- Material del curso (PDFs del instructor) ----
+# Se quedan en el disco local, no se publican.
+# Si algun dia necesitas subir uno: git add -f archivo.pdf
+*.pdf
+
+# ---- Sistema operativo ----
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- Editor ----
+.vscode/
